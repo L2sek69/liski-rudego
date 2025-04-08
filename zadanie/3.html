@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma liczb parzystych</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Oblicz sumę liczb parzystych</h1>
+        <label for="liczby">Wpisz liczby oddzielone przecinkami:</label>
+        <input type="text" id="liczby" placeholder="np. 1,2,3,4">
+        <button onclick="obliczSume()">Oblicz</button>
+        <p id="wynik"></p>
+    </div>
+
+    <script>
+        function obliczSume() {
+            const input = document.getElementById("liczby").value;
+            const liczby = input.split(",").map(Number);
+            let suma = 0;
+
+            liczby.forEach(liczba => {
+                if (liczba % 2 === 0) suma += liczba;
+            });
+
+            document.getElementById("wynik").textContent = "Suma liczb parzystych: " + suma;
+        }
+    </script>
+</body>
+</html>
